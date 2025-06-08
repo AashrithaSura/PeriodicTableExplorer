@@ -172,7 +172,7 @@
   width: 515px;
   text-align: center;
   color:black;
-  font-size: 1.2rem;
+  font-size: 1rem;
   pointer-events: none;
   transition: opacity 0.2s;
   z-index: 1;
@@ -242,7 +242,7 @@
   }
   
   .gap-text {
-    font-size: 0.90rem;
+    font-size: 0.70rem;
     position: relative;
     width: 100%;
     left: 0;
@@ -250,3 +250,5 @@
     margin: 10px 0;
   }
 }
+
+
