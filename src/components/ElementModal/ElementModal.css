@@ -142,5 +142,14 @@ button:hover { background-color: #2980b9; }
   }
   .element-details {
     grid-template-columns: 1fr;
+
   }
+  .big-atomic-number {
+    font-size: 0.80rem;
+    margin-bottom: 5px;
+  }
+  .close-button {
+    font-size: 0.80rem;
+  }
+
 }
