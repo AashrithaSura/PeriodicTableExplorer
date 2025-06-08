@@ -1,0 +1,38 @@
+.search-bar-container {
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.search-input {
+  width: 70%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+.search-button {
+  width: 30%;
+  padding: 10px 15px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.search-button:hover {
+  background-color: #1565c0;
+}
+
+@media (max-width: 600px) {
+  .search-input {
+    width: 60%;
+  }
+  .search-button {
+    width: 40%;
+  }
+}

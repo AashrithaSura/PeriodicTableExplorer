@@ -1,0 +1,268 @@
+/* Main Container */
+.periodic-table-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+/* Grid Layout */
+.group-labels,
+.periodic-table {
+  display: grid;
+  grid-template-columns: 30px repeat(18, 50px);
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.periodic-table {
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  min-width: 950px;
+  width: max-content;
+}
+
+/* Labels */
+.period-label {
+  width: 30px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+.group-labels {
+  margin-bottom: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.group-label {
+  background: #f8f9fa;
+  padding: 4px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.group-label.highlighted {
+  background: #ffe066;
+}
+
+.period-label.highlighted {
+  background: #ffeb3b;
+  box-shadow: 0 0 8px #ffeb3b88;
+}
+
+/* Cells */
+.element,
+.empty-cell {
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+/* Special Placeholders */
+.lanthanide-placeholder {
+  background: #dda0dd;
+  color: #222;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  opacity: 1;
+  transition: opacity 0.2s, filter 0.2s;
+}
+
+.actinide-placeholder {
+  background: #ff69b4;
+  color: #222;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  opacity: 1;
+  transition: opacity 0.2s, filter 0.2s;
+}
+
+/* Element Categories */
+.alkali-metal { background: #a46363f9; }
+.alkaline-earth-metal { background: #ffd700; }
+.transition-metal { background: #ffb366; }
+.post-transition-metal { background: #659f9f; }
+.metalloid { background: #bdb76b; }
+.diatomic-nonmetal { background: #87ceeb; }
+.polyatomic-nonmetal { background: #90ee90; }
+.noble-gas { background: #556d9e; }
+.lanthanide { background: #dda0dd; }
+.actinide { background: #ff69b4; }
+.unknown { background: white; }
+
+/* Highlight/Blur Effects */
+.element.highlighted {
+  outline: 3px solid #222;
+  box-shadow: 0 0 8px #222;
+  z-index: 2;
+  transform: scale(1.05);
+}
+
+.element.blurred,
+.lanthanide-placeholder.blurred,
+.actinide-placeholder.blurred {
+  opacity: 0.5;
+  filter: grayscale(50%);
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px auto;
+  width: 100%;
+  max-width: 600px;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.95em;
+  color: #222;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 6px;
+}
+
+/* Legend Category Colors */
+.legend-item.alkali-metal { background: #a46363f9; }
+.legend-item.alkaline-earth-metal { background: #ffd700; }
+.legend-item.transition-metal { background: #ffb366; }
+.legend-item.post-transition-metal { background: #659f9f; }
+.legend-item.metalloid { background: #bdb76b; }
+.legend-item.diatomic-nonmetal { background: #87ceeb; }
+.legend-item.polyatomic-nonmetal { background: #90ee90; }
+.legend-item.noble-gas { background: #556d9e; }
+.legend-item.lanthanide { background: #dda0dd; }
+.legend-item.actinide { background: #ff69b4; }
+.legend-item.unknown { background: white; }
+/* Add to PeriodicTable.css */
+.gap-text {
+  position: absolute;
+  left:170px;
+  top: 92px;
+  width: 515px;
+  text-align: center;
+  color:black;
+  font-size: 1.2rem;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 1;
+}
+
+.gap-text.hidden {
+  opacity: 0;
+}
+.model-hover-box {
+  position: absolute;
+  top: 120px;
+  left: 220px;
+  background: #f0f8ff;
+  border: 1px solid #b3d9ff;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1.2rem;
+  display: flex;
+  gap: 33px;
+  max-width: 400px; 
+  width: max-content; 
+  word-break: break-word; 
+}
+
+.atomic-hover-box {
+  position: absolute;
+  top:110px;
+  left: 190px;
+  background: #fffaf0;
+  border: 1px solid #ffddb3;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 33px;
+}
+.atomic-hover-image {
+  width: 120px;
+  height: 100px;
+  border: 1px solid #eee;
+}
+
+@media (max-width: 900px) {
+  .periodic-table {
+    min-width: 0;
+    width: 100vw;
+    padding: 4px;
+  }
+  .atomic-hover-box {
+    left: 50%;
+    top: 60px;
+    transform: translateX(-50%);
+    width: 95vw;
+    min-width: 0;
+    font-size: 0.95rem;
+    padding: 10px 2vw;
+  }
+  .model-hover-box {
+    left: 50%;
+    top: 60px;
+    transform: translateX(-50%);
+    width: 95vw;
+    min-width: 0;
+    font-size: 0.95rem;
+    padding: 10px 2vw;
+  }
+  .atomic-hover-box img {
+    max-width: 60px;
+    max-height: 60px;
+    margin-left: 10px;
+  }
+  .legend {
+    max-width: 98vw;
+    padding: 8px;
+    font-size: 0.95em;
+  }
+  .element,
+  .empty-cell {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85em;
+  }
+  .period-label, .group-label {
+    height: 36px;
+    font-size: 0.85em;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

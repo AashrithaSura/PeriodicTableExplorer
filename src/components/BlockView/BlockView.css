@@ -1,0 +1,97 @@
+.block-view-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.block-legend {
+  margin-bottom: 18px;
+}
+
+.block-legend-item {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-right: 8px;
+  font-weight: bold;
+  padding: 6px 18px;
+  border: none;
+  transition: border 0.2s;
+}
+
+.block-legend-item.selected {
+  border: 2px solid #333;
+}
+
+.show-all-btn {
+  margin-left: 16px;
+  padding: 4px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  background: #f5f5f5;
+  color: black
+}
+
+.block-table-grid {
+  display: grid;
+  grid-template-columns: repeat(18, 50px);
+  grid-auto-rows: 50px;
+  gap: 2px;
+  justify-content: center;
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.block-table-cell {
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  min-width: 48px;
+  min-height: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background 0.2s, color 0.2s, opacity 0.2s;
+  color: #222;
+  cursor: pointer;
+}
+
+.block-table-cell.faded {
+  opacity: 0.2;
+  color: #bbb;
+}
+
+.block-table-cell.empty-cell {
+  background: transparent;
+  border: none;
+}
+
+.element-symbol {
+  font-size: 18px;
+}
+
+.element-number {
+  font-size: 10px;
+  font-weight: 400;
+}
+.block-hover-card {
+  position: absolute;
+  top: 120px; 
+  left: 270px;
+  background: #fff;
+  color: #222;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 14px 24px;
+  font-size: 1.5rem;
+  text-align: left;
+}
+.block-view-container {
+  position: relative;
+}
