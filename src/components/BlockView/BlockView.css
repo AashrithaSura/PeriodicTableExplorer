@@ -1,11 +1,24 @@
 .block-view-container {
-  max-width: 1100px;
+  position: relative;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden;
 }
 
+.block-view-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+/* Legend styles */
 .block-legend {
   margin-bottom: 18px;
+  white-space: nowrap;
+  overflow-x: auto;
+  padding-bottom: 8px;
 }
 
 .block-legend-item {
@@ -30,9 +43,16 @@
   border-radius: 6px;
   border: 1px solid #bbb;
   background: #f5f5f5;
-  color: black
+  color: black;
 }
 
+/* Wrapper to allow scrolling on smaller screens */
+.block-grid-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* Table grid */
 .block-table-grid {
   display: grid;
   grid-template-columns: repeat(18, 50px);
@@ -42,8 +62,10 @@
   background: #f8f9fa;
   border-radius: 8px;
   padding: 12px;
+  min-width: 900px;
 }
 
+/* Cells */
 .block-table-cell {
   box-sizing: border-box;
   text-align: center;
@@ -80,9 +102,11 @@
   font-size: 10px;
   font-weight: 400;
 }
+
+/* Hover card */
 .block-hover-card {
   position: absolute;
-  top: 120px; 
+  top: 120px;
   left: 270px;
   background: #fff;
   color: #222;
@@ -92,6 +116,48 @@
   font-size: 1.5rem;
   text-align: left;
 }
-.block-view-container {
-  position: relative;
+
+/* Responsive styles for <= 773px */
+@media (max-width: 773px) {
+  .block-view-container {
+    padding: 12px;
+  }
+
+  .block-grid-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .block-table-grid {
+    grid-template-columns: repeat(18, 40px);
+    grid-auto-rows: 40px;
+    gap: 1px;
+    padding: 6px;
+    min-width: 720px;
+  }
+
+  .block-table-cell {
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 13px;
+  }
+
+  .element-symbol {
+    font-size: 14px;
+  }
+
+  .element-number {
+    font-size: 8px;
+  }
+
+  .block-legend-item {
+    padding: 4px 10px;
+    font-size: 11px;
+    margin-right: 6px;
+  }
+
+  .show-all-btn {
+    padding: 3px 8px;
+    font-size: 11px;
+  }
 }
