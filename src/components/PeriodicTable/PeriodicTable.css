@@ -242,7 +242,7 @@
   }
   
   .gap-text {
-    font-size: 1rem;
+    font-size: 0.90rem;
     position: relative;
     width: 100%;
     left: 0;
@@ -250,4 +250,3 @@
     margin: 10px 0;
   }
 }
-
