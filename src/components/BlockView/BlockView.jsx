@@ -13,8 +13,8 @@ const BlockView = () => {
   const [selectedBlock, setSelectedBlock] = useState(null);
   const [hoveredElement, setHoveredElement] = useState(null);
 
-  // Build a 2D grid for rows/columns
   const { order, ...elements } = elementsData;
+
   let maxX = 0;
   let maxY = 0;
   order.forEach(elementName => {
@@ -50,6 +50,7 @@ const BlockView = () => {
           </button>
         )}
       </div>
+
       {!selectedBlock && hoveredElement && (
         <div className="block-hover-card">
           <div><strong>Group:</strong> {hoveredElement.group || '—'}</div>
@@ -57,36 +58,39 @@ const BlockView = () => {
           <div><strong>Shells:</strong> {hoveredElement.shells ? hoveredElement.shells.join(', ') : '—'}</div>
         </div>
       )}
-      <div className="block-table-grid">
-        {grid.map((row, rowIndex) =>
-          row.map((element, colIndex) => {
-            if (!element) {
+
+      <div className="block-grid-wrapper">
+        <div className="block-table-grid">
+          {grid.map((row, rowIndex) =>
+            row.map((element, colIndex) => {
+              if (!element) {
+                return (
+                  <div
+                    key={`empty-${rowIndex}-${colIndex}`}
+                    className="block-table-cell empty-cell"
+                  ></div>
+                );
+              }
+              const isInBlock = !selectedBlock || element.block === selectedBlock;
               return (
                 <div
-                  key={`empty-${rowIndex}-${colIndex}`}
-                  className="block-table-cell empty-cell"
-                ></div>
+                  key={element.name}
+                  className={`block-table-cell${isInBlock ? '' : ' faded'}`}
+                  style={{
+                    background: isInBlock
+                      ? blockColors[element.block]
+                      : '#f5f5f5'
+                  }}
+                  onMouseEnter={() => setHoveredElement(element)}
+                  onMouseLeave={() => setHoveredElement(null)}
+                >
+                  <div className="element-symbol">{element.symbol}</div>
+                  <div className="element-number">{element.number}</div>
+                </div>
               );
-            }
-            const isInBlock = !selectedBlock || element.block === selectedBlock;
-            return (
-              <div
-                key={element.name}
-                className={`block-table-cell${isInBlock ? '' : ' faded'}`}
-                style={{
-                  background: isInBlock
-                    ? blockColors[element.block]
-                    : '#f5f5f5'
-                }}
-                onMouseEnter={() => setHoveredElement(element)}
-                onMouseLeave={() => setHoveredElement(null)}
-              >
-                <div className="element-symbol">{element.symbol}</div>
-                <div className="element-number">{element.number}</div>
-              </div>
-            );
-          })
-        )}
+            })
+          )}
+        </div>
       </div>
     </div>
   );
